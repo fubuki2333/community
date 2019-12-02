@@ -29,8 +29,10 @@ public class AuthorizeController {
 
     @Value("${github.client.id}")
     private String clientId;
+
     @Value("${gitbub.client.secret}")
     private String clientSecret;
+
     @Value("${gitbub.redirect.uri}")
     private String redirectUri;
 
