@@ -12,6 +12,7 @@
 ## 工具
 [Git](http://git-scm.com/download)  
 [Visual Paradigm](https://www.visual-paradigm.com)
+[Flyway](https://flywaydb.org/getstarted/firststeps/maven)
 
 ## 脚本
 ```sql
@@ -24,4 +25,7 @@ create table user
     gmt_create   bigint             null,
     gmt_modified bigint             null
 );
+```
+```bash
+mvn flyway:migrate
 ```
