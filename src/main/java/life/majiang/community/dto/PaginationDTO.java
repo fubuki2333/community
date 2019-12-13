@@ -1,0 +1,63 @@
+package life.majiang.community.dto;
+
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * ClassName:PaginationDTO
+ * Package:life.majiang.community.dto
+ * Description:
+ *
+ * @Date:2019/12/12 下午 11:26
+ * @Author:gaochenyu2012@126.com
+ */
+@Data
+public class PaginationDTO {
+    private List<QuestionDTO> questions;
+    private boolean showPrecious;
+    private boolean showFirstPage;
+    private boolean showNext;
+    private boolean showEndPage;
+    private Integer page;
+    private List<Integer> pages;
+    private List<Integer> pages = new ArrayList<>();
+
+    public void setPagination(Integer totalCount, Integer page, Integer size) {
+        Integer totalPage = 0;
+        if (totalCount % size == 0) {
+            totalPage = totalCount / size;
+        } else {
+            totalPage = totalCount / size + 1;
+        }
+
+        // 是否展示上一页
+        if (page == 1) {
+            showPrecious = false;
+        } else {
+            showPrecious = true;
+        }
+
+        // 是否展示下一页
+        if (page == totalPage) {
+            showNext = false;
+        } else {
+            showNext = true;
+        }
+
+        // 是否展示第一页
+        if (pages.contains(1)){
+            showFirstPage = false;
+        }else {
+            showFirstPage = true;
+        }
+
+        // 是否展示最后一页
+        if (pages.contains(totalPage)){
+            showEndPage = false;
+        } else {
+            showEndPage = true;
+        }
+    }
+}
