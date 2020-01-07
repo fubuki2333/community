@@ -1,5 +1,6 @@
 package life.majiang.community.dto;
 
+import life.majiang.community.model.User;
 import lombok.Data;
 
 /**
@@ -7,12 +8,18 @@ import lombok.Data;
  * Package:life.majiang.community.dto
  * Description:
  *
- * @Date:2019/12/27 下午 8:38
- * @Author:gaochenyu2012@126.com
+ * @Date:2020/1/5 下午 10:54
+ * @Author:gaochenyu2020@163.com
  */
 @Data
 public class CommentDTO {
+    private Long id;
     private Long parentId;
-    private String content;
     private Integer type;
+    private Long commentator;
+    private Long gmtCreate;
+    private Long gmtModified;
+    private Long likeCount;
+    private String content;
+    private User user;
 }
