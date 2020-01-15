@@ -71,29 +71,29 @@ function collapseComments(e) {
                 $.each(data.data.reverse(), function (index, comment) {
 
                     moment.locale('zh-cn');
-                    var mediaLeftElement = $("<div/>",{
-                        "class":"media-left"
+                    var mediaLeftElement = $("<div/>", {
+                        "class": "media-left"
                     }).append($("<img/>", {
                         "class": "media-object img-rounded",
                         "src": comment.user.avatarUrl
                     }));
 
-                    var mediaBodyElement = $("<div/>",{
-                        "class":"media-body"
+                    var mediaBodyElement = $("<div/>", {
+                        "class": "media-body"
                     }).append($("<h5/>", {
                         "class": "media-heading",
                         "html": comment.user.name
                     })).append($("<div/>", {
                         "html": comment.content
                     })).append($("<div/>", {
-                        "class":"menu"
+                        "class": "menu"
                     }).append($("<span/>", {
-                        "class":"pull-right",
+                        "class": "pull-right",
                         "html": moment(comment.gmtCreate).fromNow()
                     })));
 
-                    var mediaElement = $("<div/>",{
-                        "class":"media"
+                    var mediaElement = $("<div/>", {
+                        "class": "media"
                     }).append(mediaLeftElement).append(mediaBodyElement);
 
                     var commentElement = $("<div/>", {
@@ -107,6 +107,21 @@ function collapseComments(e) {
                 e.classList.add("active");
             })
         }
+    }
+}
 
+function showSelectTag(){
+    $("#select-tag").show();
+}
+
+function selectTag(e) {
+    var value = e.getAttribute("data-tag");
+    var previous = $("#tag").val();
+    if(previous.indexOf(value) == -1){
+        if (previous) {
+            $("#tag").val(previous + ',' + value);
+        } else {
+            $("#tag").val(value);
+        }
     }
 }
