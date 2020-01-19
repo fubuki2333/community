@@ -1,6 +1,5 @@
 package life.majiang.community.service;
 
-import life.majiang.community.dto.CommentDTO;
 import life.majiang.community.dto.PaginationDTO;
 import life.majiang.community.dto.QuestionDTO;
 import life.majiang.community.exception.CustomizeErrorCode;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 /**
@@ -82,7 +80,7 @@ public class QuestionService {
             questionDTOList.add(questionDTO);
         }
 
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
         return paginationDTO;
     }
 
@@ -128,7 +126,7 @@ public class QuestionService {
             questionDTOList.add(questionDTO);
         }
 
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
         return paginationDTO;
     }
 
