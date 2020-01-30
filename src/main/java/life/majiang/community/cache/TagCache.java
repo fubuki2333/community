@@ -48,11 +48,11 @@ public class TagCache {
     }
 
     public static String filterInvalid(String tags){
-        String[] split = StringUtils.split(tags);
+        String[] split = StringUtils.split(tags,",");
         List<TagDTO> tagDTOS = get();
 
         List<String> tagList = tagDTOS.stream().flatMap(tag -> tag.getTags().stream()).collect(Collectors.toList());
-        String invalid = Arrays.stream(split).filter(t -> !tagList.contains(t)).collect(Collectors.joining(","));
+        String invalid = Arrays.stream(split).filter(t -> StringUtils.isBlank(t) || !tagList.contains(t)).collect(Collectors.joining(","));
         return invalid;
     }
 }
