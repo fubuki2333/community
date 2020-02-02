@@ -1,5 +1,26 @@
 ## 比利社区
 
+##部署
+### 依赖
+- Git
+- JDK
+- Maven
+- MySQL
+##步骤
+- yum update
+- yum install git
+- mkdir App
+- cd App
+- git clone git@github.com:fubuki2333/community.git
+- yum install maven
+- mvn -v
+- mvn compile package
+- cp src/main/resources/application.properties src/main/resources/application-production.properties
+- vim src/main/resources/application-production.properties
+- mvn package
+- java -jar -Dspring.profiles.active=production target/community-0.0.1-SNAPSHOT.jar
+
+
 ## 资料
 [Spring 文档](https://spring.io/guides)  
 [Spring Web](https://spring.io/guides/gs/serving-web-content/)  
