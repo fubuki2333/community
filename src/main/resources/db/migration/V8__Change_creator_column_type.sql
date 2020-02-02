@@ -1,3 +1,3 @@
-alter table question modify creator BIGINT auto_increment;
-alter table user modify commentator BIGINT auto_increment;
+alter table question modify creator bigint auto_increment;
+alter table comment modify commentator bigint auto_increment;
 
